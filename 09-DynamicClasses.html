@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List App</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="shopping-list" class="centered">
+        <div class="header">
+            <h1>{{ header.toLocaleUpperCase() }}</h1>
+            <button v-if="(state === 'default')" class="btn btn-primary" @click="changeState('edit')">Add Item</button>
+            <button v-else class="btn btn-danger" @click="changeState('default')">Cancel</button>
+        </div>
+        <hr/>
+        <div class="add-item-form" v-if="state === 'edit'">
+            Item
+            <input type="text" class="text" v-model="newItem" v-on:keyup.enter="saveItem">
+            <button class="btn btn-primary" @click="saveItem" v-bind:disabled="newItem.length === 0">Save</button>
+        </div>
+       
+        <ul>
+            <li v-for="item in items" @click="toggleState(item)" :class="[ item.purchased ? 'strikethrough' : '', item.label==='coffee' ? 'highlight' : '']">{{ item.label }}</li>
+        </ul>
+
+        <p v-if="items.length == 0">Add in items to your list!</p>
+    </div>
+    <script src="https://unpkg.com/vue@2.7.14/dist/vue.js"></script>
+    <script>
+        var myshoppingList = new Vue({
+            el: '#shopping-list',
+            data: {
+                state: 'default',
+                header: 'Shopping List App!',
+                newItem: '',
+                items: [
+                    {
+                        label: "10 Dark Roast",
+                        purchased: false,
+                    },
+                    {
+                        label: "5 Bagels",
+                        purchased: true,
+                    },
+                    {
+                        label: "2 Wedges",
+                        purchased: false,
+                    },
+                ]
+            },
+            methods: {
+                saveItem: function(){
+                    this.items.push({
+                        label: this.newItem,
+                        purchased: false,
+                    });
+                    this.newItem = '';
+                },
+                changeState: function (passedState){
+                    this.state = passedState;
+                    this.newItem = '';
+                },
+                toggleState: function(item){
+                    item.purchased = !item.purchased;
+                    //console.log(item)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
