@@ -1,3 +1,32 @@
+### VueJS
+* Frontend javascript framework for buildingn websites and user interfaces
+* Used for creating dynamic front end apps and websites
+* Easy to integrate with other projects
+* Virtual DOM
+  
+### Working with State or Data
+* Components can have their own state which can determine how a specific component beaves and what data is displayed
+* Some state may be local to a specific component and some may be "global" or "app" level state that needs to be shared with multiple components 
+* Vuex is a state manager for global state in larger applications
+
+### Vue CLI
+* Standard tooling for Vue.js development
+* Command line interface for creating Vue apps
+* Dev server and easy production build
+* Optional GUI for managing Vue projects
+* Integrated testing, Typescript support, ESLint
+
+```
+npm install -g @vue/cli
+# OR
+yarn global add @vue/cli
+
+vue create sample-project
+# OR
+vue ui
+```
+
+
 ### Resources
 * CDN Library Source: https://cdnjs.com/libraries/vue/2.7.14
 * Unpackage: https://unpkg.com/ ( https://unpkg.com/vue@2.7.14/dist/vue.js )
@@ -17,11 +46,11 @@
   ```
 
 * 02 - Template and Syntax Expression
-  * Within double moustache expression only one expression can be evaluated at a time
+  * Within double moustache expression, only one expression can be evaluated at a time
   ```
   {{ header.toLocaleUpperCase() }}
   ```
-  * Also, we can't declare variables or do a if logic statements in double moustache expression. If needed, you can use ternary statement or shorthand if expression 
+  * Also, we can't declare variables or do if logic statement in double moustache expression. If needed, you can use ternary statement or shorthand "if" expression 
 
 * 03 - List Rendering
   * We will add an array of items and use a directive called v-for to loop through the items
