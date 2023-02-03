@@ -31,7 +31,7 @@ vue ui
 * CDN Library Source: https://cdnjs.com/libraries/vue/2.7.14
 * Unpackage: https://unpkg.com/ ( https://unpkg.com/vue@2.7.14/dist/vue.js )
 
-### Lessons Learnt
+### Lessons Learnt (using Vue CDN)
 
 * 01 - Getting Started with Vue
   * Basic HTML template with Vue js file from CDN
